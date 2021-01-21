@@ -37,6 +37,7 @@ class MainViewController: UIViewController {
 
 }
 
+// MARK: - Setup Methods
 
 private extension MainViewController {
     
