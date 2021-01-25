@@ -87,15 +87,24 @@ extension DetailViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        collectionView.dequeueReusableCell(with: CollectionViewCell.self, for: indexPath)
+    }
+    
+    
+}
+
+// MARK: - DetailViewController
+
+extension DetailViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let item = items[indexPath.item]
-        let cell = collectionView.dequeueReusableCell(with: CollectionViewCell.self, for: indexPath)
+        guard let cell = cell as? CollectionViewCell else { return }
         
         cell.titleLabel.text = item.dt.getTime().dayOfWeek()
         cell.dayTempLabel.text = "\(Int(item.temp.day))"
         cell.nightTempLabel.text = "\(Int(item.temp.night))"
-        return cell
     }
-    
     
 }
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CityStorage {
+final class CityStorage {
     
     private let userDefaults = UserDefaults.standard
     private let key = "CityStorageKey"

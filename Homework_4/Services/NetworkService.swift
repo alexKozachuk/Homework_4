@@ -16,7 +16,7 @@ enum GetCityError: Error {
     case errorWithResponse(_ respnse: Response)
 }
 
-class NetworkService {
+final class NetworkService {
     
     enum Lang: String {
         case en, ru, ua
@@ -26,11 +26,11 @@ class NetworkService {
         case metric, standard, imperial
     }
     
-    let sheme = "https"
-    let host = "api.openweathermap.org"
-    let apiKey = "b710e479e41ce8035985e931be593d5c"
-    var lang: Lang
-    var units: Units
+    private let sheme = "https"
+    private let host = "api.openweathermap.org"
+    private let apiKey = "b710e479e41ce8035985e931be593d5c"
+    private var lang: Lang
+    private var units: Units
     
     init(lang: Lang = .en, units: Units = .metric) {
         self.lang = lang
